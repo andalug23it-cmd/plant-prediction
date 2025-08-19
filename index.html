@@ -18,18 +18,22 @@
           <div class="muted small">MERN-ready frontend · Runs fully in the browser</div>
         </div>
       </div>
-      <div class="pill">Press <span class="kbd">D</span> to toggle Demo Mode</div>
+      <nav>
+        <a href="index.html" class="btn-primary">🏠 Home</a>
+        <a href="contact.html" class="btn-ghost">📩 Contact</a>
+      </nav>
     </header>
 
     <div class="grid">
       <!-- LEFT -->
       <section class="card">
-        <h2>1) Load Model & Labels</h2>      
+        <h2>1) Load Model & Labels</h2>
         <div class="row">
           <input id="modelUrl" type="text" placeholder="Model URL (e.g., /model/model.json)" />
           <button id="btnLoad" class="btn-primary">Load Model</button>
           <button id="btnUnload" class="btn-ghost">Unload</button>
         </div>
+
         <div class="row">
           <textarea id="labels" placeholder="Labels (one per line)"></textarea>
           <div class="side">
@@ -60,7 +64,21 @@
         <div class="row" style="margin-top:12px">
           <img id="preview" class="thumb" alt="preview"/>
         </div>
-></canvas>
+      </section>
+
+      <!-- RIGHT: Profile Cards -->
+      <section class="card">
+        <h2>Profile Card Generator</h2>
+        <div class="row">
+          <input id="profileName" type="text" placeholder="Enter Name" />
+          <input id="profileRole" type="text" placeholder="Enter Role" />
+          <button id="btnAddProfile" class="btn-primary">Add Profile</button>
+        </div>
+        <div id="profileContainer" class="profile-grid"></div>
+      </section>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>

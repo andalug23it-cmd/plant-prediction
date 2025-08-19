@@ -1,70 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Contact Us - Plant Disease Prediction System</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="wrap">
-    <header>
-      <div class="brand">
-        <div class="logo">🌱</div>
-        <div>
-          <h1>Contact Us</h1>
-          <div class="muted small">We’d love to hear from you</div>
-        </div>
-      </div>
-      <nav>
-        <a href="index.html" class="btn-ghost">🏠 Home</a>
-        <a href="contact.html" class="btn-primary">📩 Contact</a>
-      </nav>
-    </header>
+// Profile Card Generator
+document.getElementById("btnAddProfile").addEventListener("click", function(){
+  const name = document.getElementById("profileName").value.trim();
+  const role = document.getElementById("profileRole").value.trim();
+  const container = document.getElementById("profileContainer");
 
-    <section class="card">
-      <h2>Get in Touch</h2>
-      <p>If you have any questions, feedback, or collaboration ideas, please fill out the form below:</p>
+  if(!name || !role){
+    alert("Please enter both name and role.");
+    return;
+  }
 
-      <form class="form" id="contactForm">
-        <div class="row">
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Enter your name" required />
-          </label>
-        </div>
+  const card = document.createElement("div");
+  card.className = "profile-card";
+  card.innerHTML = `
+    <h3>${name}</h3>
+    <p>${role}</p>
+    <button class="remove-btn">Remove</button>
+  `;
 
-        <div class="row">
-          <label>
-            Email
-            <input type="email" name="email" placeholder="Enter your email" required />
-          </label>
-        </div>
+  card.querySelector(".remove-btn").addEventListener("click", () => card.remove());
+  container.appendChild(card);
 
-        <div class="row">
-          <label>
-            Message
-            <textarea name="message" placeholder="Type your message..." required></textarea>
-          </label>
-        </div>
-
-        <div class="row">
-          <button type="submit" class="btn-primary">Send Message</button>
-        </div>
-      </form>
-    </section>
-
-    <footer class="muted small" style="margin-top:24px; text-align:center">
-      © 2025 Plant Disease Prediction System · Built with ❤️
-    </footer>
-  </div>
-
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      alert("✅ Thank you for contacting us! We’ll get back to you soon.");
-      this.reset();
-    });
-  </script>
-</body>
-</html>
+  document.getElementById("profileName").value = "";
+  document.getElementById("profileRole").value = "";
+});
