@@ -1,42 +1,139 @@
-:root {
-  --bg:#0b1220;
-  --panel:#101a2b;
-  --muted:#6b7a90;
-  --text:#e6eefc;
-  --brand:#36d399;
-  --border:#1f2b3f;
+/* General Layout */
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+  margin: 0;
+  padding: 0;
 }
 
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
-.wrap{max-width:1100px;margin:0 auto;padding:20px}
-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
-.brand{display:flex;align-items:center;gap:12px}
-.logo{width:38px;height:38px;border-radius:12px;background:var(--brand);display:grid;place-items:center;color:#072016;font-weight:800}
-h1{margin:0;font-size:22px}
-.grid{display:grid;grid-template-columns:1.6fr 1fr;gap:16px}
-@media(max-width:900px){.grid{grid-template-columns:1fr}}
-.card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:16px}
-.card h2{font-size:18px;margin:0 0 10px}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-.side{display:flex;flex-direction:column;gap:8px;width:220px}
-input,textarea{width:100%;background:#0b1423;border:1px solid var(--border);color:var(--text);border-radius:12px;padding:10px}
-textarea{min-height:90px}
-button{background:#12203a;border:1px solid var(--border);color:var(--text);padding:10px;border-radius:12px;cursor:pointer}
-button:hover{opacity:.9}
-.btn-primary{background:#0e2a22}
-.btn-danger{background:#2a0e0e}
-.btn-ghost{background:transparent}
-.uploader{border:2px dashed #27405f;border-radius:14px;padding:14px;text-align:center;cursor:pointer}
-.uploader input{display:none}
-.thumb{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px;background:#0b1423}
-.video{width:100%;border-radius:12px;border:1px solid var(--border);background:#000}
-.actions{display:flex;gap:8px;flex-wrap:wrap}
-.muted{color:var(--muted)}
-.small{font-size:12px}
+.wrap {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
 
-.profile-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin-top:16px}
-.profile-card{background:#0b1423;border:1px solid var(--border);border-radius:14px;padding:12px;text-align:center}
-.profile-card h3{margin:8px 0 4px}
-.profile-card p{margin:0;color:var(--muted)}
-.remove-btn{background:#2a0e0e;margin-top:10px}
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  font-size: 30px;
+}
+
+nav a {
+  margin-left: 10px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-primary {
+  background: #34d399;
+  color: #072016;
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid #94a3b8;
+  color: #94a3b8;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.form .row {
+  margin-bottom: 12px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 4px;
+}
+
+/* Profile Card Grid */
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Profile Card */
+.profile-card {
+  background: #1e293b;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+  color: #f1f5f9;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+
+/* Avatar */
+.avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: #34d399;
+  color: #072016;
+  font-weight: bold;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+/* Name & Role */
+.profile-card h3 {
+  margin: 8px 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.profile-card p {
+  margin: 0;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* Remove Button */
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.remove-btn:hover {
+  color: #f87171;
+}

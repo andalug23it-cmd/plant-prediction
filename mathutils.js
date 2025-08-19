@@ -1,16 +1,13 @@
 // mathutils.js
 // Utility to generate and manage profile cards dynamically
 
-// Container where cards will be added
-const profileContainer = document.getElementById("profileContainer");
-
 // Function to create a profile card
-export function createProfileCard(name, role) {
-  // Create the card element
+export function createProfileCard(container, name, role) {
+  // Create card element
   const card = document.createElement("div");
   card.classList.add("profile-card");
 
-  // Add content
+  // Card content
   card.innerHTML = `
     <div class="avatar">${name.charAt(0).toUpperCase()}</div>
     <div class="details">
@@ -20,20 +17,21 @@ export function createProfileCard(name, role) {
     <button class="remove-btn">❌</button>
   `;
 
-  // Add remove button event
+  // Remove button functionality
   card.querySelector(".remove-btn").addEventListener("click", () => {
     card.remove();
   });
 
   // Append to container
-  profileContainer.appendChild(card);
+  container.appendChild(card);
 }
 
-// Function to prompt user and add a new profile
-export function addProfile() {
+// Function to prompt user and add profile
+export function addProfile(containerId) {
   const name = prompt("Enter name:");
   const role = prompt("Enter role:");
   if (name && role) {
-    createProfileCard(name, role);
+    const container = document.getElementById(containerId);
+    createProfileCard(container, name, role);
   }
 }

@@ -1,25 +1,30 @@
-// Profile Card Generator
-document.getElementById("btnAddProfile").addEventListener("click", function(){
-  const name = document.getElementById("profileName").value.trim();
-  const role = document.getElementById("profileRole").value.trim();
-  const container = document.getElementById("profileContainer");
+// Handle profile form
+document.getElementById("profileForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  
+  const name = document.getElementById("name").value.trim();
+  const role = document.getElementById("role").value.trim();
 
-  if(!name || !role){
-    alert("Please enter both name and role.");
-    return;
+  if(name && role) {
+    const profileList = document.getElementById("profileList");
+
+    const card = document.createElement("div");
+    card.className = "profile-card";
+    card.innerHTML = `
+      <button class="remove-btn">✖</button>
+      <div class="avatar">${name.charAt(0).toUpperCase()}</div>
+      <div class="details">
+        <h3>${name}</h3>
+        <p>${role}</p>
+      </div>
+    `;
+
+    // Remove functionality
+    card.querySelector(".remove-btn").addEventListener("click", () => {
+      card.remove();
+    });
+
+    profileList.appendChild(card);
+    this.reset();
   }
-
-  const card = document.createElement("div");
-  card.className = "profile-card";
-  card.innerHTML = `
-    <h3>${name}</h3>
-    <p>${role}</p>
-    <button class="remove-btn">Remove</button>
-  `;
-
-  card.querySelector(".remove-btn").addEventListener("click", () => card.remove());
-  container.appendChild(card);
-
-  document.getElementById("profileName").value = "";
-  document.getElementById("profileRole").value = "";
 });

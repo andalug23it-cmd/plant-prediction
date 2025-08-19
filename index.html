@@ -1,21 +1,21 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Plant Disease Prediction System</title>
+  <title>Plant Disease Prediction System - Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- TensorFlow.js -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.21.0/dist/tf.min.js"></script>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="wrap">
+    <!-- HEADER -->
     <header>
       <div class="brand">
         <div class="logo">🌱</div>
         <div>
-          <h1>Plant Disease Prediction System</h1>
-          <div class="muted small">MERN-ready frontend · Runs fully in the browser</div>
+          <h1>Plant Disease Prediction</h1>
+          <div class="muted small">AI-powered detection</div>
         </div>
       </div>
       <nav>
@@ -24,59 +24,38 @@
       </nav>
     </header>
 
-    <div class="grid">
-      <!-- LEFT -->
-      <section class="card">
-        <h2>1) Load Model & Labels</h2>
+    <!-- ADD PROFILE SECTION -->
+    <section class="card">
+      <h2>Add Team Member</h2>
+      <form id="profileForm" class="form">
         <div class="row">
-          <input id="modelUrl" type="text" placeholder="Model URL (e.g., /model/model.json)" />
-          <button id="btnLoad" class="btn-primary">Load Model</button>
-          <button id="btnUnload" class="btn-ghost">Unload</button>
-        </div>
-
-        <div class="row">
-          <textarea id="labels" placeholder="Labels (one per line)"></textarea>
-          <div class="side">
-            <label class="uploader">
-              <input id="labelFile" type="file" accept=".txt" />
-              <div>Upload labels.txt</div>
-            </label>
-            <button id="btnUseDemoLabels">Use Sample Labels</button>
-          </div>
-        </div>
-
-        <h2 style="margin-top:16px">2) Provide an Image</h2>
-        <div class="row">
-          <label class="uploader" style="flex:1">
-            <input id="fileInput" type="file" accept="image/*" />
-            <div>Click to choose image or drop here</div>
+          <label>
+            Name
+            <input type="text" id="name" placeholder="Enter name" required />
           </label>
-          <div class="side">
-            <video id="video" class="video" autoplay playsinline muted></video>
-            <div class="actions">
-              <button id="btnWebcam" class="btn-ghost">Start Webcam</button>
-              <button id="btnSnap" class="btn-primary">Capture</button>
-              <button id="btnStop" class="btn-danger">Stop</button>
-            </div>
-          </div>
         </div>
-
-        <div class="row" style="margin-top:12px">
-          <img id="preview" class="thumb" alt="preview"/>
-        </div>
-      </section>
-
-      <!-- RIGHT: Profile Cards -->
-      <section class="card">
-        <h2>Profile Card Generator</h2>
         <div class="row">
-          <input id="profileName" type="text" placeholder="Enter Name" />
-          <input id="profileRole" type="text" placeholder="Enter Role" />
-          <button id="btnAddProfile" class="btn-primary">Add Profile</button>
+          <label>
+            Role
+            <input type="text" id="role" placeholder="Enter role" required />
+          </label>
         </div>
-        <div id="profileContainer" class="profile-grid"></div>
-      </section>
-    </div>
+        <div class="row">
+          <button type="submit" class="btn-primary">Add Profile</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- PROFILE CARDS -->
+    <section class="card">
+      <h2>Our Team</h2>
+      <div id="profileList" class="profile-grid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="muted small" style="margin-top:24px; text-align:center">
+      © 2025 Plant Disease Prediction System · Built with ❤️
+    </footer>
   </div>
 
   <script src="script.js"></script>
