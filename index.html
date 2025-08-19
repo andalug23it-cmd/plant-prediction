@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plant Disease Prediction System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- TensorFlow.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.21.0/dist/tf.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">🌱</div>
+        <div>
+          <h1>Plant Disease Prediction System</h1>
+          <div class="muted small">MERN-ready frontend · Runs fully in the browser</div>
+        </div>
+      </div>
+      <div class="pill">Press <span class="kbd">D</span> to toggle Demo Mode</div>
+    </header>
+
+    <div class="grid">
+      <!-- LEFT -->
+      <section class="card">
+        <h2>1) Load Model & Labels</h2>      
+        <div class="row">
+          <input id="modelUrl" type="text" placeholder="Model URL (e.g., /model/model.json)" />
+          <button id="btnLoad" class="btn-primary">Load Model</button>
+          <button id="btnUnload" class="btn-ghost">Unload</button>
+        </div>
+        <div class="row">
+          <textarea id="labels" placeholder="Labels (one per line)"></textarea>
+          <div class="side">
+            <label class="uploader">
+              <input id="labelFile" type="file" accept=".txt" />
+              <div>Upload labels.txt</div>
+            </label>
+            <button id="btnUseDemoLabels">Use Sample Labels</button>
+          </div>
+        </div>
+
+        <h2 style="margin-top:16px">2) Provide an Image</h2>
+        <div class="row">
+          <label class="uploader" style="flex:1">
+            <input id="fileInput" type="file" accept="image/*" />
+            <div>Click to choose image or drop here</div>
+          </label>
+          <div class="side">
+            <video id="video" class="video" autoplay playsinline muted></video>
+            <div class="actions">
+              <button id="btnWebcam" class="btn-ghost">Start Webcam</button>
+              <button id="btnSnap" class="btn-primary">Capture</button>
+              <button id="btnStop" class="btn-danger">Stop</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:12px">
+          <img id="preview" class="thumb" alt="preview"/>
+        </div>
+></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
